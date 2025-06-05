@@ -44,7 +44,7 @@ function ResearchAgent(props: WrappedComponentProps & InjectedProps) {
                 props.sendOutput('research-topic', topic);
               }}
             >
-              Let's Go
+              Let&apos;s Go
             </button>
           </div>
         </form>
