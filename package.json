@@ -1,0 +1,14 @@
+{
+  "name": "coreai-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/tools-views",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "cd apps/tools-views && npm run dev",
+    "build": "cd apps/tools-views && npm run build",
+    "start": "cd apps/tools-views && npm run start"
+  }
+}
