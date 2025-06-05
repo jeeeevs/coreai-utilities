@@ -3,9 +3,9 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [
-        "apps/tools-views/.next/**",
+        "apps/tools-views/dist/**",
         "apps/tools-views/public/**",
-        "packages/ui/.next/**",
+        "packages/ui/dist/**",
         "packages/ui/public/**"
       ],
       "env": ["EXA_API_KEY"]

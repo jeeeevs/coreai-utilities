@@ -12,8 +12,8 @@ COPY packages ./packages
 COPY apps/tools-views ./apps/tools-views
 
 # Install dependencies and build only the tools-views app
-RUN pnpm install --frozen-lockfile --filter tools-views...
-RUN pnpm --filter tools-views run build
+RUN pnpm install --frozen-lockfile
+RUN pnpm build
 
 # Production image
 FROM node:18-alpine AS runner
@@ -29,7 +29,7 @@ COPY packages ./packages
 COPY apps/tools-views ./apps/tools-views
 
 # Install only production dependencies for the tools-views app
-RUN pnpm install --prod --frozen-lockfile --filter tools-views...
+RUN pnpm install --prod --frozen-lockfile
 
 WORKDIR /app/apps/tools-views
 ENV NODE_ENV=production
@@ -37,5 +37,8 @@ ENV NODE_ENV=production
 # Expose default Next.js port
 EXPOSE 3000
 
-# Run the Next.js production server
+COPY --from=base /app/apps/tools-views/dist ./dist
+COPY --from=base /app/apps/tools-views/public ./public
+
+# Run the Next.js production server (uses distDir=dist)
 CMD ["pnpm", "start"]
