@@ -2,7 +2,10 @@
     "tasks": {
       "build": {
         "dependsOn": ["^build"],
-        "outputs": ["dist/**"],
+        "outputs": [
+          "apps/tools-views/.next/**",
+          "apps/tools-views/public/**"
+        ],
         "env": ["EXA_API_KEY"]
       },
       "dev": {
