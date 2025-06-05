@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
@@ -109,7 +110,7 @@ function withHost<P extends WrappedComponentProps>(
       <div ref={widgetRef}>
         <Script
           src="https://unpkg.com/@psnext/block-sdk@0.0.25/dist/block-sdk.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <WrappedComponent
           {...(props as P)}

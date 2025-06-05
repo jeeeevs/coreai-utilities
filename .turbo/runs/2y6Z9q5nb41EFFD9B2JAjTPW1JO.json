@@ -1,0 +1,138 @@
+{
+  "id": "2y6Z9q5nb41EFFD9B2JAjTPW1JO",
+  "version": "1",
+  "turboVersion": "2.5.4",
+  "monorepo": true,
+  "globalCacheInputs": {
+    "rootKey": "I can’t see ya, but I know you’re here",
+    "files": {},
+    "hashOfExternalDependencies": "459c029558afe716",
+    "hashOfInternalDependencies": "",
+    "environmentVariables": {
+      "specified": {
+        "env": [],
+        "passThroughEnv": null
+      },
+      "configured": [],
+      "inferred": [
+        "VERCEL_TARGET_ENV=5975cf1bba432391c94667f5886225f69377c0aa8b9fa21fddfb21c89bcf9092"
+      ],
+      "passthrough": null
+    },
+    "engines": null
+  },
+  "execution": {
+    "command": "turbo run build",
+    "repoPath": "",
+    "success": 0,
+    "failed": 1,
+    "cached": 0,
+    "attempted": 1,
+    "startTime": 1749156812317,
+    "endTime": 1749156834366,
+    "exitCode": 1
+  },
+  "packages": [
+    "@coreai/ui",
+    "tools-views"
+  ],
+  "envMode": "strict",
+  "frameworkInference": true,
+  "tasks": [
+    {
+      "taskId": "@coreai/ui#build",
+      "task": "build",
+      "package": "@coreai/ui",
+      "hash": "9d0bffd162eb43a0",
+      "inputs": {
+        ".gitignore": "5ef6a520780202a1d6addd833d800ccb1ecac0bb",
+        "README.md": "e215bc4ccf138bbc38ad58ad57e92135484b3c0f",
+        "eslint.config.mjs": "c85fb67c463f20d1ee449b0ffee725a61dfb9259",
+        "next.config.ts": "e9ffa3083ad279ecf95fd8eae59cb253e9a539c4",
+        "package-lock.json": "4785e8daab717f2bec0d50f507f8c95274adad4e",
+        "package.json": "e133ad0a1e8a1ea10734a6c00e5a604c93c3bd0e",
+        "postcss.config.mjs": "c7bcb4b1ee14cd5e25078c2c934529afdd2a7df9",
+        "public/file.svg": "004145cddf3f9db91b57b9cb596683c8eb420862",
+        "public/globe.svg": "567f17b0d7c7fb662c16d4357dd74830caf2dccb",
+        "public/next.svg": "5174b28c565c285e3e312ec5178be64fbeca8398",
+        "public/vercel.svg": "77053960334e2e34dc584dea8019925c3b4ccca9",
+        "public/window.svg": "b2b2a44f6ebc70c450043c05a002e7a93ba5d651",
+        "src/app/favicon.ico": "718d6fea4835ec2d246af9800eddb7ffb276240c",
+        "src/app/globals.css": "a2dc41ecee5ec435200fe7cba2bde4107f823774",
+        "src/app/layout.tsx": "f7fa87eb875260ed98651bc419c8139b5119e554",
+        "src/app/page.tsx": "e68abe6bd57f9a5bd5ac0abc423811cd39025c92",
+        "src/hoc/withHost.tsx": "f520584b5e4efdb070b93b815c5f5f4f90fbac96",
+        "src/utils/types.ts": "4560f96e285b17369e70aa06ff77f87fb13ca108",
+        "tsconfig.json": "c1334095f876a408c10f2357faaced969ec090ab"
+      },
+      "hashOfExternalDependencies": "922e5c43816a6f08",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "next build",
+      "cliArguments": [],
+      "outputs": [
+        "apps/tools-views/.next/**",
+        "apps/tools-views/public/**"
+      ],
+      "excludedOutputs": null,
+      "logFile": "packages/ui/.turbo/turbo-build.log",
+      "directory": "packages/ui",
+      "dependencies": [],
+      "dependents": [
+        "tools-views#build"
+      ],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "apps/tools-views/.next/**",
+          "apps/tools-views/public/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [
+          "EXA_API_KEY"
+        ],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "nextjs",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "EXA_API_KEY"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "EXA_API_KEY=ef2166b3ec79ca95ac2869b764911d56db2e242ed3f5e38cff4bdb9c821b128b"
+        ],
+        "inferred": [],
+        "passthrough": null
+      },
+      "execution": {
+        "startTime": 1749156812785,
+        "endTime": 1749156834366,
+        "error": "command (/Users/jeenazar/Projects/coreai-utilities/packages/ui) /usr/local/bin/pnpm run build exited (1)",
+        "exitCode": 1
+      }
+    }
+  ],
+  "user": "",
+  "scm": {
+    "type": "git",
+    "sha": "b9847133d458d4d78bcc421f06982dd1d93957a7",
+    "branch": "feature/tools-and-views"
+  }
+}
