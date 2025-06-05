@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coreai/ui": "workspace:*",
     "@vitejs/plugin-react": "^4.5.1",
     "exa-js": "*",
     "lucide-react": "^0.513.0",

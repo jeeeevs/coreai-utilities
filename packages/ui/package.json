@@ -1,7 +1,11 @@
 {
-  "name": "ui",
+  "name": "@coreai/ui",
   "version": "0.1.0",
   "private": true,
+  "exports": {
+    "./hoc/withHost": "./src/hoc/withHost.tsx",
+    "./utils/types": "./src/utils/types.ts"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

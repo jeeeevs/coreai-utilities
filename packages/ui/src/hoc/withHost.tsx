@@ -12,12 +12,12 @@ export interface IncomingBlock {
 export interface WrappedComponentProps {
   incomingData: { [key: string]: { data: any; source: any } };
   hostData: IHostData;
-  // eslint-disable-next-line no-unused-vars
+   
   sendOutput: (outputHandlerId: string, payload: any) => void;
-  // eslint-disable-next-line no-unused-vars
+   
   sendAlxMessage: (message: string) => void;
   alxData: any;
-  // eslint-disable-next-line no-unused-vars
+   
 }
 
 // Define the props that the HOC will inject
