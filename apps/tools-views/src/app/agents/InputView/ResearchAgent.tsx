@@ -3,13 +3,12 @@ import React, { useState } from 'react';
 import withHost, { WrappedComponentProps, InjectedProps } from '@coreai/ui/hoc/withHost';
 
 function ResearchAgent(props: WrappedComponentProps & InjectedProps) {
-  console.log(props);
   const [topic, setTopic] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle submission logic here
-    console.log('Research topic:', topic);
+    console.log('form submit topic:', topic);
+    props.sendOutput('research-topic', topic);
   };
 
   return (
@@ -40,11 +39,8 @@ function ResearchAgent(props: WrappedComponentProps & InjectedProps) {
             <button
               type="submit"
               className="bg-white text-[#1a1f2e] px-8 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors"
-              onClick={() => {
-                props.sendOutput('research-topic', topic);
-              }}
             >
-              Let's Go
+              Let&apos;s Go
             </button>
           </div>
         </form>

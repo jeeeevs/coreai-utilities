@@ -36,7 +36,7 @@ function withHost<P extends WrappedComponentProps>(
   WrappedComponent: React.FC<P>
 ) {
   return function WithHost(props: InjectedProps) {
-    const blockSdkInstance = useRef<any>();
+    const blockSdkInstance = useRef<any>(undefined);
     const widgetRef = useRef<HTMLDivElement>(null);
     const [incomingData, setIncomingData] = useState<{
       [key: string]: { data: any; source: any };
@@ -71,6 +71,7 @@ function withHost<P extends WrappedComponentProps>(
     };
 
     const sendOutput = (outputHandlerId: string, data: any) => {
+      console.log('sendOutput', outputHandlerId, data);
       blockSdkInstance.current?.sendOutput(outputHandlerId, data);
     };
 
