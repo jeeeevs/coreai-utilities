@@ -38,3 +38,13 @@ export async function researchAgent(prompt: string) {
 
   return exa.research.pollTask(taskId);
 }
+
+/**
+ * Writer agent that generates a paragraph based on the given prompt.
+ * @param prompt - The topic or instructions for the paragraph.
+ * @returns The completed task result.
+ */
+export async function writerAgent(prompt: string) {
+  const instructions = `Write a paragraph about: ${prompt}`;
+  return researchAgent(instructions);
+}
