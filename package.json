@@ -4,12 +4,12 @@
   "private": true,
   "packageManager": "pnpm@10.9.0",
   "workspaces": [
-    "apps/tools-views",
+    "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "dev": "cd apps/tools-views && npm run dev",
-    "build": "cd apps/tools-views && npm run build",
-    "start": "cd apps/tools-views && npm run start"
+    "dev": "pnpm --filter tools-views dev",
+    "build": "pnpm --filter tools-views build",
+    "start": "pnpm --filter tools-views start"
   }
 }

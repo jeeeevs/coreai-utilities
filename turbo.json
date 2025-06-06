@@ -1,15 +1,21 @@
 {
-    "tasks": {
-      "build": {
-        "dependsOn": ["^build"],
-        "outputs": [
-          "apps/tools-views/.next/**",
-          "apps/tools-views/public/**"
-        ],
-        "env": ["EXA_API_KEY"]
-      },
-      "dev": {
-        "cache": false
-      }
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "apps/tools-views/dist/**",
+        "apps/tools-views/public/**",
+        "packages/ui/dist/**",
+        "packages/ui/public/**"
+      ],
+      "env": ["EXA_API_KEY"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
     }
   }
+}

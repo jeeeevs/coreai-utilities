@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
@@ -36,7 +37,7 @@ function withHost<P extends WrappedComponentProps>(
   WrappedComponent: React.FC<P>
 ) {
   return function WithHost(props: InjectedProps) {
-    const blockSdkInstance = useRef<any>(undefined);
+    const blockSdkInstance = useRef<any>(null);
     const widgetRef = useRef<HTMLDivElement>(null);
     const [incomingData, setIncomingData] = useState<{
       [key: string]: { data: any; source: any };
@@ -110,7 +111,7 @@ function withHost<P extends WrappedComponentProps>(
       <div ref={widgetRef}>
         <Script
           src="https://unpkg.com/@psnext/block-sdk@0.0.25/dist/block-sdk.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <WrappedComponent
           {...(props as P)}

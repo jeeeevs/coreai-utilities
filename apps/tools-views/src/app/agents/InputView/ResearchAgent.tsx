@@ -15,7 +15,7 @@ function ResearchAgent(props: WrappedComponentProps & InjectedProps) {
     <div className="min-h-screen bg-[#1a1f2e] text-white p-6">
       <div className="max-w-2xl mx-auto">
         <h2 className="text-lg mb-2 text-gray-300">
-          We require the topic you wish to research.
+          We require the topic you wish to research...
         </h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">

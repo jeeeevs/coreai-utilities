@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { MoreVertical } from 'lucide-react';
 import type { Article } from '../types';
 
@@ -24,10 +25,12 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <h2 className="text-white text-xl font-semibold mb-4">{article.title}</h2>
 
       <div className="bg-[#2a2f3e] rounded p-2 mb-4 flex items-center gap-2">
-        <img
+        <Image
           src="https://www.google.com/s2/favicons?domain=mbusa.com&sz=32"
           alt="Mercedes-Benz"
-          className="w-4 h-4 rounded"
+          width={16}
+          height={16}
+          className="rounded"
         />
         <span className="text-gray-400 text-sm">
           {article.domain} | {article.title}
