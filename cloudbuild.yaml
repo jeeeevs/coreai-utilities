@@ -1,11 +1,14 @@
 # Cloud Build configuration for building and pushing the Docker image
 steps:
-- name: 'gcr.io/cloud-builders/docker'
   args:
   - 'build'
   - '--no-cache'
+  - '--build-arg'
+  - 'EXA_API_KEY=$_EXA_API_KEY'
   - '-t'
   - 'gcr.io/$PROJECT_ID/tools-views'
   - '.'
+substitutions:
+  _EXA_API_KEY: '${_EXA_API_KEY}'
 images:
 - 'gcr.io/$PROJECT_ID/tools-views'
