@@ -1,5 +1,9 @@
-import OutputView from './OutputView';
+import ImageGenerator from "./ImageGenerator";
 
 export default function Page() {
-  return <OutputView />;
+  return (
+    <div className="min-h-screen w-full bg-[#232D48]">
+      <ImageGenerator />
+    </div>
+  );
 }
