@@ -1,0 +1,11 @@
+# Cloud Build configuration for building and pushing the Docker image
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--no-cache'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/tools-views'
+  - '.'
+images:
+- 'gcr.io/$PROJECT_ID/tools-views'
