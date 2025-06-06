@@ -13,7 +13,7 @@ COPY apps/tools-views ./apps/tools-views
 
 # Install dependencies and build only the tools-views app
 ARG EXA_API_KEY
-ENV EXA_API_KEY=${EXA_API_KEY}
+ENV EXA_API_KEY="DUMMY_VALUE"
 RUN pnpm install --frozen-lockfile
 RUN pnpm build
 
