@@ -1,11 +1,21 @@
 {
-    "pipeline": {
-      "build": {
-        "dependsOn": ["^build"],
-        "outputs": ["dist/**"]
-      },
-      "dev": {
-        "cache": false
-      }
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "apps/tools-views/dist/**",
+        "apps/tools-views/public/**",
+        "packages/ui/dist/**",
+        "packages/ui/public/**"
+      ],
+      "env": ["EXA_API_KEY"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
     }
   }
+}
