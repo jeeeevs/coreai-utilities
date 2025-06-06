@@ -1,4 +1,4 @@
-import ResearchAgent from "./ResearchAgent";
+import ResearchAgent from "./research-agent";
 
 export default function Page() {
   return (
