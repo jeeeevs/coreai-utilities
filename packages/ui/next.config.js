@@ -2,9 +2,16 @@
 const nextConfig = {
   // Output build files to 'dist' instead of default '.next'
   distDir: 'dist',
-  // Allow external image domains
+  // Allow external images via remote patterns
   images: {
-    domains: ['picsum.photos'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
