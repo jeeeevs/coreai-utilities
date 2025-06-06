@@ -31,7 +31,6 @@ COPY apps/tools-views ./apps/tools-views
 # Install only production dependencies for the tools-views app
 RUN pnpm install --prod --frozen-lockfile
 
-WORKDIR /app/apps/tools-views
 ENV NODE_ENV=production
 
 # Expose default Next.js port
