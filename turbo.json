@@ -8,7 +8,8 @@
         "packages/ui/dist/**",
         "packages/ui/public/**"
       ],
-      "env": ["EXA_API_KEY"]
+      "env": ["EXA_API_KEY"],
+      "persistent": true
     },
     "lint": {
       "outputs": []
