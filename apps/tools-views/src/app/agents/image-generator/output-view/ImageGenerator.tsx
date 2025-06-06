@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { mockImages, type ImageData } from './mockData';
 
 interface ImageCardProps {
@@ -28,11 +29,12 @@ const ImageCard: React.FC<ImageCardProps> = ({
       }`}
       onClick={onClick}
     >
-      <div className="w-64 h-48 flex-shrink-0">
-        <img
+      <div className="w-64 h-48 flex-shrink-0 relative">
+        <Image
           src={imageUrl}
           alt={title}
-          className="w-full h-full object-cover rounded-lg"
+          fill
+          className="object-cover rounded-lg"
         />
       </div>
       <div className="flex-grow">

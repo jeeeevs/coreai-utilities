@@ -71,6 +71,7 @@ const ArticleCard = ({
   article: Article;
   onShowMore: (article: Article) => void;
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [expanded, setExpanded] = useState(false);
 
   return (
