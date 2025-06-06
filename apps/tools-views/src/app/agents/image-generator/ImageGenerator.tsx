@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { mockImages, type ImageData } from './mockData';
 
 interface ImageCardProps {
   imageUrl: string;
@@ -7,6 +8,8 @@ interface ImageCardProps {
   description: string;
   onTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onDescriptionChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  isSelected?: boolean;
+  onClick?: () => void;
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({ 
@@ -14,10 +17,17 @@ const ImageCard: React.FC<ImageCardProps> = ({
   title, 
   description, 
   onTitleChange, 
-  onDescriptionChange 
+  onDescriptionChange,
+  isSelected,
+  onClick
 }) => {
   return (
-    <div className="bg-gray-600 rounded-lg p-4 mb-4 flex gap-12">
+    <div 
+      className={`bg-gray-600 rounded-lg p-4 mb-4 flex gap-12 transition-all duration-200 ${
+        isSelected ? 'ring-2 ring-teal-500 scale-[1.02]' : 'hover:scale-[1.01] cursor-pointer'
+      }`}
+      onClick={onClick}
+    >
       <div className="w-64 h-48 flex-shrink-0">
         <img
           src={imageUrl}
@@ -38,6 +48,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
             onChange={onTitleChange}
             placeholder="Enter image title"
             className="bg-transparent text-white text-xl font-semibold focus:outline-none focus:border-b border-teal-500 w-full"
+            onClick={(e) => e.stopPropagation()}
           />
         </div>
         <textarea
@@ -46,6 +57,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
           placeholder="Enter image description"
           className="mt-5 text-gray-300 bg-transparent w-full focus:outline-none focus:border-b border-teal-500 resize-none"
           rows={3}
+          onClick={(e) => e.stopPropagation()}
         />
       </div>
     </div>
@@ -53,29 +65,43 @@ const ImageCard: React.FC<ImageCardProps> = ({
 };
 
 const ImageGenerator: React.FC = () => {
-  const [currentImage, setCurrentImage] = useState<Omit<ImageCardProps, 'onTitleChange' | 'onDescriptionChange'>>({
-    imageUrl: "https://picsum.photos/400/300",
-    title: "",
-    description: ""
-  });
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [images, setImages] = useState<ImageData[]>(mockImages);
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrentImage({ ...currentImage, title: e.target.value });
+  const handleTitleChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updatedImages = [...images];
+    updatedImages[index] = {
+      ...updatedImages[index],
+      title: e.target.value
+    };
+    setImages(updatedImages);
   };
 
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setCurrentImage({ ...currentImage, description: e.target.value });
+  const handleDescriptionChange = (index: number) => (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const updatedImages = [...images];
+    updatedImages[index] = {
+      ...updatedImages[index],
+      description: e.target.value
+    };
+    setImages(updatedImages);
   };
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <ImageCard
-        imageUrl={currentImage.imageUrl}
-        title={currentImage.title}
-        description={currentImage.description}
-        onTitleChange={handleTitleChange}
-        onDescriptionChange={handleDescriptionChange}
-      />
+      <div className="h-[calc(100vh-3rem)] overflow-y-auto pr-4 space-y-6">
+        {images.map((image, index) => (
+          <ImageCard
+            key={image.id}
+            imageUrl={image.imageUrl}
+            title={image.title}
+            description={image.description}
+            onTitleChange={handleTitleChange(index)}
+            onDescriptionChange={handleDescriptionChange(index)}
+            isSelected={index === currentImageIndex}
+            onClick={() => setCurrentImageIndex(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
