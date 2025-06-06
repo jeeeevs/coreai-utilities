@@ -6,7 +6,7 @@ WORKDIR /app
 RUN npm install -g pnpm@${PNPM_VERSION:-latest}
 
 # Copy monorepo root files and workspace configuration
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 # Copy shared and app packages
 COPY packages ./packages
 COPY apps/tools-views ./apps/tools-views
@@ -23,7 +23,7 @@ WORKDIR /app
 RUN npm install -g pnpm@${PNPM_VERSION:-latest}
 
 # Copy monorepo root files and workspace configuration
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 # Copy shared and app packages
 COPY packages ./packages
 COPY apps/tools-views ./apps/tools-views
