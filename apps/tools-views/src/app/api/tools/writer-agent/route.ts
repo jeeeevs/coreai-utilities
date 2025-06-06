@@ -1,12 +1,10 @@
 import { NextResponse } from 'next/server';
-import { writerAgent } from '../../../../lib/exa';
+import schema from './schema.json';
 
 /**
- * POST /api/tools/writer-agent
- * Receives a JSON body with a `prompt` field and returns a generated paragraph.
+ * POST /api/tools/writing-agent
+ * Returns block content based on the JSON schema file.
  */
-export async function POST(request: Request) {
-  const { prompt } = await request.json();
-  const result = await writerAgent(prompt);
-  return NextResponse.json(result?.data);
+export async function POST() {
+  return NextResponse.json(schema);
 }

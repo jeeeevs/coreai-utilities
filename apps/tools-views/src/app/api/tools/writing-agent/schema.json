@@ -1,9 +1,0 @@
-{
-  "blockName": "Name or label of the block",
-  "title": "Main heading text of the block",
-  "description": "Body text or paragraph content",
-  "subTitile": "Sub heading text of the block",
-  "bulletPoints": [
-    "List of bullet points"
-  ]
-}

@@ -1,0 +1,14 @@
+{
+  "blockName": "Crypto Market Trends Overview",
+  "title": "Q2 2025 Crypto Market Trends",
+  "description": "An overview of the most significant trends shaping the cryptocurrency market in the second quarter of 2025.",
+  "subTitile": "Key Trends and Insights",
+  "bulletPoints": [
+    "Bitcoin dominance rebounds to 48% as institutional investors increase exposure",
+    "Ethereum 2.0 staking yields stabilize at 4.5%, attracting long-term holders",
+    "DeFi total value locked (TVL) crosses $125B, driven by growth in lending and yield farming",
+    "Stablecoin supply growth slows to 8% QoQ amid tightening regulatory frameworks",
+    "Altcoin season accelerates with Solana up 35% and Polkadot up 28% in market value",
+    "NFT trading volume surges 20% thanks to renewed interest in gaming and metaverse assets"
+  ]
+}

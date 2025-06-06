@@ -6,9 +6,14 @@ export default function Home() {
         className="h-[600px] w-[600px] rounded-lg shadow-lg border-0"
         title="Research Input"
       />
+      <iframe 
+        src="/agents/research-agent/output-view"
+        className="h-[600px] w-[600px] rounded-lg shadow-lg border-0"
+        title="Research Output"
+      />
 
       <iframe 
-        src="/agents/writting-agent/output-view"
+        src="/agents/writer-agent/output-view"
         className="h-[500px] w-[600px] rounded-lg shadow-lg border-0"
         title="Writing Agent"
       />
