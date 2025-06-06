@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Output build files to 'dist' instead of default '.next'
   distDir: 'dist',
+  // Allow external image domains
+  images: {
+    domains: ['picsum.photos'],
+  },
   images: {
     remotePatterns: [
       {
