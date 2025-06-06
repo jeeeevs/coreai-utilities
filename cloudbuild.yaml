@@ -1,14 +1,22 @@
-# Cloud Build configuration for building and pushing the Docker image
+availableSecrets:
+  secretManager:
+    - versionName: "projects/173427583790/secrets/EXA_API_KEY/versions/1"
+      env: "EXA_API_KEY"    # ← this is the name of the env var your step will see
+
 steps:
-  args:
-  - 'build'
-  - '--no-cache'
-  - '--build-arg'
-  - 'EXA_API_KEY=$_EXA_API_KEY'
-  - '-t'
-  - 'gcr.io/$PROJECT_ID/tools-views'
-  - '.'
-substitutions:
-  _EXA_API_KEY: '${_EXA_API_KEY}'
+  - name: "gcr.io/cloud-builders/docker"
+    # Tell Cloud Build that this step needs EXA_API_KEY injected:
+    secretEnv:
+      - "EXA_API_KEY"
+    args:
+      - "build"
+      - "--no-cache"
+      - "--build-arg"
+      - "EXA_API_KEY=$EXA_API_KEY"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/tools-views"
+      - "."
+
+# (Optionally push the resulting image)
 images:
-- 'gcr.io/$PROJECT_ID/tools-views'
+  - "gcr.io/$PROJECT_ID/tools-views:$SHORT_SHA"
