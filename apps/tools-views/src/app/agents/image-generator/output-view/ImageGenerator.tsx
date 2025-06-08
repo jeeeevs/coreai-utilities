@@ -66,7 +66,7 @@ const ImageGenerator: React.FC<WrappedComponentProps & InjectedProps> = (props) 
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <div className="h-[calc(100vh-3rem)] overflow-y-auto pr-4 space-y-6">
-        {images.map((image, index) => (
+        {images.map((image) => (
           <ImageCard
             key={image.id}
             imageUrl={image.imageUrl}
