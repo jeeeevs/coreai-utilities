@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import withHost, { WrappedComponentProps, InjectedProps } from '@coreai/ui/hoc/withHost';
 
-function ResearchAgent(props: WrappedComponentProps & InjectedProps) {
+function InputView(props: WrappedComponentProps & InjectedProps) {
   const [topic, setTopic] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -49,4 +49,4 @@ function ResearchAgent(props: WrappedComponentProps & InjectedProps) {
   );
 }
 
-export default withHost(ResearchAgent);
+export default withHost(InputView);
