@@ -1,5 +1,20 @@
 import React from 'react'
 
+const mockData = [
+  {
+    title: "Content Strategy Analysis",
+    description: "A comprehensive analysis of current content strategy trends and their impact on digital marketing. This report highlights key findings and recommendations for improvement.",
+    subHeading: "What are the most effective content types for digital marketing in 2024?",
+    keypoints: [
+      { text: "Video content engagement rate", percentage: 35 },
+      { text: "Blog post effectiveness", percentage: 25 },
+      { text: "Social media impact", percentage: 20 },
+      { text: "Email marketing success", percentage: 15 },
+      { text: "Podcast reach", percentage: 5 }
+    ]
+  }
+];
+
 function WritingAgent() {
   return (
     <div className="bg-gray-600 rounded-lg p-6 text-white">
@@ -22,37 +37,29 @@ function WritingAgent() {
       </div>
 
       {/* Content Section */}
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Tempor incididunt</h3>
-        
-        <p className="text-gray-300">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-        </p>
-
-        <div className="mt-6">
-          <h4 className="text-lg font-semibold mb-4">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt?
-          </h4>
+      {mockData.map((data, index) => (
+        <div key={index} className="space-y-4">
+          <h3 className="text-xl font-semibold">{data.title}</h3>
           
-          <ul className="space-y-3">
-            <li className="flex justify-between items-center">
-              <span>1. Lorem ipsum dolor sit amet consectetur, 10%</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>2. Sit amet consectetur, 15%</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>3. Adipiscing elit sed, 30%</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>4. Eiusmod tempor incididunt, 20%</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>5. Consectetur adipiscing elit sed, 25%</span>
-            </li>
-          </ul>
+          <p className="text-gray-300">
+            {data.description}
+          </p>
+
+          <div className="mt-6">
+            <h4 className="text-lg font-semibold mb-4">
+              {data.subHeading}
+            </h4>
+            
+            <ul className="space-y-3">
+              {data.keypoints.map((point, idx) => (
+                <li key={idx} className="flex justify-between items-center">
+                  <span>{idx + 1}. {point.text}, {point.percentage}%</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   )
 }
