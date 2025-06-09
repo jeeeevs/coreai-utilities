@@ -6,25 +6,19 @@ import { MoreVertical } from 'lucide-react';
 import OutputViewShowMore from './OutputViewShowMore';
 
 export interface Article {
-  id: string;
-  type: string;
   date: string;
   title: string;
-  url: string;
-  domain: string;
-  details: string[];
+  sourceUrl: string;
+  keyPoints: string[];
   source: string;
 }
 
 const mockArticles: Article[] = [
   {
-    id: '1',
-    type: 'Relevant Article',
     date: 'April 10, 2025',
     title: 'Build Your Own 2025 Mercedes-Maybach S 580 4MATIC',
-    url: 'https://mbusa.com',
-    domain: 'mbusa.com',
-    details: [
+    sourceUrl: 'https://mbusa.com',
+    keyPoints: [
       'The total price shown includes a base price plus estimated taxes and fees...',
       'Prices can change depending on optional products and add-ons.',
       'Acceleration rates are estimates from the manufacturer...',
@@ -33,13 +27,10 @@ const mockArticles: Article[] = [
     source: 'Lorem Ipsum Dolor'
   },
   {
-    id: '2',
-    type: 'Relevant Article',
     date: 'April 10, 2025',
     title: 'Build Your Own 2025 Mercedes-Maybach S 580 4MATIC',
-    url: 'https://mbusa.com',
-    domain: 'mbusa.com',
-    details: [
+    sourceUrl: 'https://mbusa.com',
+    keyPoints: [
       'The total price shown includes a base price plus estimated taxes and fees...',
       'Prices can change depending on optional products and add-ons.',
       'Acceleration rates are estimates from the manufacturer...',
@@ -48,13 +39,10 @@ const mockArticles: Article[] = [
     source: 'Lorem Ipsum Dolor'
   },
   {
-    id: '3',
-    type: 'Relevant Article',
     date: 'April 10, 2025',
     title: 'Build Your Own 2025 Mercedes-Maybach S 580 4MATIC',
-    url: 'https://mbusa.com',
-    domain: 'mbusa.com',
-    details: [
+    sourceUrl: 'https://mbusa.com',
+    keyPoints: [
       'The total price shown includes a base price plus estimated taxes and fees...',
       'Prices can change depending on optional products and add-ons.',
       'Acceleration rates are estimates from the manufacturer...',
@@ -73,12 +61,12 @@ const ArticleCard = ({
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [expanded, setExpanded] = useState(false);
-
+  const domain = article.sourceUrl.split('//')[1];
   return (
     <div className="bg-[#1a1f2e] rounded-lg p-6 hover:bg-[#1e2436] transition-colors flex flex-col justify-between h-full">
       <div className="flex justify-between items-start mb-4">
         <div>
-          <div className="text-gray-400 text-sm mb-1">{article.type}</div>
+          <div className="text-gray-400 text-sm mb-1">Relevant Article</div>
           <div className="text-gray-400 text-sm">{article.date}</div>
         </div>
         <button className="p-1 hover:bg-gray-700 rounded-full transition-colors">
@@ -90,23 +78,23 @@ const ArticleCard = ({
 
       <div className="bg-[#2a2f3e] rounded p-2 mb-4 flex items-center gap-2 overflow-hidden">
         <Image
-          src={`https://www.google.com/s2/favicons?domain=${article.domain}&sz=32`}
-          alt={article.domain}
+          src={`https://www.google.com/s2/favicons?domain=${domain}&sz=32`}
+          alt={domain}
           width={16}
           height={16}
           unoptimized
           className="rounded"
         />
         <span className="text-gray-400 text-sm truncate">
-          {article.domain} | {article.title}
+          {domain} | {article.title}
         </span>
       </div>
 
       <div className={`space-y-2 ${expanded ? '' : 'line-clamp-3'} mb-4`}>
-        {article.details.map((detail, idx) => (
+        {article.keyPoints.map((keypoint, idx) => (
           <div key={idx} className="flex items-start gap-2 text-gray-300 text-sm">
             <span className="min-w-2 h-2 rounded-full bg-gray-500 mt-2" />
-            <p>{detail}</p>
+            <p>{keypoint}</p>
           </div>
         ))}
       </div>
@@ -142,8 +130,8 @@ const OutputView = () => {
   return (
     <div className="min-h-screen bg-[#0f1219] p-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {mockArticles.map((article) => (
-          <ArticleCard key={article.id} article={article} onShowMore={handleShowMore} />
+        {mockArticles.map((article, idx) => (
+          <ArticleCard key={idx} article={article} onShowMore={handleShowMore} />
         ))}
       </div>
 
