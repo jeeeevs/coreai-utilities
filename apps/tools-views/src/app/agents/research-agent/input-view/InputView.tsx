@@ -8,7 +8,7 @@ function InputView(props: WrappedComponentProps & InjectedProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('form submit topic:', topic);
-    props.sendOutput('research-topic', topic);
+    props.sendOutput('research-agent-output-inputhandler', topic);
   };
 
   return (
